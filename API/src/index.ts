@@ -31,6 +31,6 @@ app.use('/vacations', router)
 app.use('/charts', charts)
 
 
-app.listen(PORT, () => {
-    console.log(`Listening to Port ${PORT}`)
+app.listen(PORT || 3500, () => {
+    console.log(`Listening to Port ${PORT || 3500}`)
 })
