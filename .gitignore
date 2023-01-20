@@ -1,10 +1,8 @@
 **node_modules
-**dist
 **MY-DOCS
-dist
+
 # dependencies
 /node_modules
-API/dist
 API/node_modules
 CLIENT/node_modules
 # testing
