@@ -25,6 +25,7 @@ function App() {
         <main className="container content">
           <Routes >
             <Route path="/" element={<Login />} />
+            <Route path="/vacations" element={<Login />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/about" element={<About />} />
             <Route path="/chart" element={<Chart />} />
