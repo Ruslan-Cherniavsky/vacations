@@ -21,7 +21,7 @@ interface ILoginUser {
 }
 async function loginUser(user: ILoginUser) {
   if (!user.password || !user.userName) throw new Error("Missing paramters");
-  const query = `SELECT * FROM vc.users where vc.users.user_name = ? AND vc.users.password = ? `;
+  const query = `SELECT * FROM bxvtweaofqlvtdjztxk5.users where bxvtweaofqlvtdjztxk5.users.user_name = ? AND bxvtweaofqlvtdjztxk5.users.password = ? `;
   console.log(query);
   const [result] = await getConnection().execute(query, [user.userName, md5(user.password),]);
   console.log(result[0]);

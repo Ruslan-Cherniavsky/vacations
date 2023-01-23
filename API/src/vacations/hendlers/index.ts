@@ -18,7 +18,7 @@ async function postVacationHandler(payload) {
 }
 
 const postVacationQuery = () => {
-    return `INSERT INTO vc.vacations (destination, description, picture, date_start, date_end, price) VALUES (?, ?, ?, ?, ?, ?);
+    return `INSERT INTO bxvtweaofqlvtdjztxk5.vacations (destination, description, picture, date_start, date_end, price) VALUES (?, ?, ?, ?, ?, ?);
     `;
 };
 
@@ -39,7 +39,7 @@ async function getVacationsHandler() {
 }
 
 const getInputsQuery = () => {
-    return `SELECT * FROM vc.vacations ORDER BY time_created DESC`;
+    return `SELECT * FROM bxvtweaofqlvtdjztxk5.vacations ORDER BY time_created DESC`;
 };
 
 //------------------------------------ LIKE VACATION-------------------------------------------------
@@ -72,7 +72,7 @@ async function likeVacationHandler(userId, vacationId) {
 }
 
 const likeVacationQuery = () => {
-    return `INSERT INTO vc.followed_vacations (user_id, vacation_id) VALUES (?, ?);
+    return `INSERT INTO bxvtweaofqlvtdjztxk5.followed_vacations (user_id, vacation_id) VALUES (?, ?);
     `;
 };
 
@@ -106,7 +106,7 @@ async function FollowVacation(id) {
 }
 
 const deleteFollowVacationQuery = () => {
-    return `DELETE FROM vc.followed_vacations WHERE (vacation_id = ?);`;
+    return `DELETE FROM bxvtweaofqlvtdjztxk5.followed_vacations WHERE (vacation_id = ?);`;
 };
 
 //--------------------------------------GET LIKED VACATIOS----------------------------------
@@ -139,21 +139,21 @@ async function getfilteredVacation(userId) {
 }
 
 const filteredVacationQuery = () => {
-    return `SELECT vc.vacations.id, destination, description, picture, date_start, date_end, price FROM vc.vacations
-    LEFT JOIN vc.followed_vacations
-    ON followed_vacations.vacation_id = vc.vacations.id
-    WHERE (vc.followed_vacations.user_id = ?) ORDER BY time_created DESC;
+    return `SELECT bxvtweaofqlvtdjztxk5.vacations.id, destination, description, picture, date_start, date_end, price FROM bxvtweaofqlvtdjztxk5.vacations
+    LEFT JOIN bxvtweaofqlvtdjztxk5.followed_vacations
+    ON followed_vacations.vacation_id = bxvtweaofqlvtdjztxk5.vacations.id
+    WHERE (bxvtweaofqlvtdjztxk5.followed_vacations.user_id = ?) ORDER BY time_created DESC;
     `;
 };
 
 // ---------old sheeta ------
 
-`SELECT vc.vacations.id, destination, description, picture, date_start, date_end, price FROM vc.users
-    LEFT JOIN vc.followed_vacations
-   ON followed_vacations.user_id = vc.users.id
-   LEFT JOIN vc.vacations 
-   ON vc.vacations.id = vc.followed_vacations.vacation_id
-   WHERE vc.users.user_name = ?
+`SELECT bxvtweaofqlvtdjztxk5.vacations.id, destination, description, picture, date_start, date_end, price FROM bxvtweaofqlvtdjztxk5.users
+    LEFT JOIN bxvtweaofqlvtdjztxk5.followed_vacations
+   ON followed_vacations.user_id = bxvtweaofqlvtdjztxk5.users.id
+   LEFT JOIN bxvtweaofqlvtdjztxk5.vacations 
+   ON bxvtweaofqlvtdjztxk5.vacations.id = bxvtweaofqlvtdjztxk5.followed_vacations.vacation_id
+   WHERE bxvtweaofqlvtdjztxk5.users.user_name = ?
     `
 //---------------------------CHEACK LIKED VACATIONS----[liked vacation id's by current user id]-----------------------
 
@@ -184,10 +184,10 @@ async function likedHandleCheack(userId) {
 }
 
 const likedCheackQuery = () => {
-    return `SELECT vacation_id FROM vc.vacations
-    LEFT JOIN vc.followed_vacations
-    ON followed_vacations.vacation_id = vc.vacations.id
-    WHERE vc.followed_vacations.user_id = ?;
+    return `SELECT vacation_id FROM bxvtweaofqlvtdjztxk5.vacations
+    LEFT JOIN bxvtweaofqlvtdjztxk5.followed_vacations
+    ON followed_vacations.vacation_id = bxvtweaofqlvtdjztxk5.vacations.id
+    WHERE bxvtweaofqlvtdjztxk5.followed_vacations.user_id = ?;
     `;
 };
 
@@ -234,7 +234,7 @@ async function deleteVacationHandler(id) {
 }
 
 const deleteVacationQuery = () => {
-    return `DELETE FROM vc.vacations WHERE (id = ?);`;
+    return `DELETE FROM bxvtweaofqlvtdjztxk5.vacations WHERE (id = ?);`;
 };
 
 //-------------------------------------UPDATE VACATION-----------------------------
@@ -255,14 +255,14 @@ async function updateVacationHandler(payload, id) {
 }
 
 const updateVacationQuery = () => {
-    return `REPLACE INTO vc.vacations (id, destination, description, picture, date_start, date_end, price) VALUES (?,?,?,?,?,?,?) 
+    return `REPLACE INTO bxvtweaofqlvtdjztxk5.vacations (id, destination, description, picture, date_start, date_end, price) VALUES (?,?,?,?,?,?,?) 
     `
 };
 
 //-------------------------------------UPDATE OLD & BAD SHEETA-----------------------------
 
 // const updateVacationQuery = (id, destination, description, picture, date_start, date_end, price) => {
-//     return `UPDATE vc.vacations SET destination = 
+//     return `UPDATE bxvtweaofqlvtdjztxk5.vacations SET destination = 
 //     ${destination}' , description = 
 //     '${description}', picture = 
 //     '${picture}', date_start = 

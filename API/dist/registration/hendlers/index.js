@@ -34,6 +34,6 @@ function addUser(payload) {
     });
 }
 const addUersQuery = () => {
-    return `INSERT INTO vc.users (user_name, first_name, last_name, role,  password) VALUES (?, ?, ?, ?, ?);
+    return `INSERT INTO bxvtweaofqlvtdjztxk5.users (user_name, first_name, last_name, role,  password) VALUES (?, ?, ?, ?, ?);
     `;
 };
