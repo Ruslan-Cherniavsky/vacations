@@ -38,6 +38,6 @@ app.use('/regester', route_4.default); // midlewere
 app.use(auth_1.default);
 app.use('/vacations', route_1.default);
 app.use('/charts', route_2.default);
-app.listen(PORT, () => {
-    console.log(`Listening to Port ${PORT}`);
+app.listen(PORT || 3500, () => {
+    console.log(`Listening to Port ${PORT || 3500}`);
 });
