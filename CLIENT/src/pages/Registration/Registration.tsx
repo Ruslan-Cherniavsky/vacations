@@ -38,7 +38,7 @@ function Registration() {
             password: password,
         }
         try {
-            const { data } = await axios.post(`http://localhost:3500/regester`, payload)
+            const { data } = await axios.post(`https://vacations-api.onrender.com/regester`, payload)
             setuserName('')
             setFirstName('')
             setLastName('')

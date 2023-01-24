@@ -51,7 +51,7 @@ function EditFormMode(props: any) {
             price: price,
         }
         try {
-            const { data } = await axiosInstance.post(`http://localhost:3500/vacations/updatevacation/${id}`, payload)
+            const { data } = await axiosInstance.post(`https://vacations-api.onrender.com/vacations/updatevacation/${id}`, payload)
             console.log(data)
             setdestination('')
             setdescription('')
