@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { getTokenLS } from "./localStorage";
 
-const axiosInstance: any = axios.create({ baseURL: "http://localhost:3500" });
+const axiosInstance: any = axios.create({ baseURL: "https://vacations-api.onrender.com" });
 axiosInstance.interceptors.request.use((request: any) => {
   request.headers.authorization = getToken();
   return request;

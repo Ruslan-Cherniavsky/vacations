@@ -18,7 +18,7 @@ function Header() {
 
     const getUserData = async () => {
         try {
-            const { data } = await axiosInstance.get(`http://localhost:3500/vacations/userData`)
+            const { data } = await axiosInstance.get(`https://vacations-api.onrender.com/vacations/userData`)
             dispatch(setUserName(data.userName))
             dispatch(setUserRole(data.role))
 

@@ -18,7 +18,7 @@ function Chart() {
 
     const getTopVcData = async () => {
         try {
-            const { data } = await axiosInstance.get(`http://localhost:3500/charts/`)
+            const { data } = await axiosInstance.get(`https://vacations-api.onrender.com/charts/`)
 
             setTopVcData(data)
             // console.log(Number(data[0].user_likes))
