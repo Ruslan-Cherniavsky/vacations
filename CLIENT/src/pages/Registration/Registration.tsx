@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 import { Link } from 'react-router-dom'
 import { Alert, TextField } from "@mui/material";
-import Stack from '@mui/material/Stack';
 
 import axios from "axios";
 
@@ -24,6 +23,8 @@ function Registration() {
 
 
     const sendButtonHandler = async () => {
+
+        console.log('try')
         if (!userName) return errorHandler("Plese enter user name")
         if (!firstName) return errorHandler("Plese enter first name")
         if (!lastName) return errorHandler("Plese enter last name")
@@ -38,7 +39,7 @@ function Registration() {
             password: password,
         }
         try {
-            const { data } = await axios.post(`https://vacations-api.onrender.com/regester`, payload)
+            const { data } = await axios.post(`https://vacations-api.onrender.com/regester/`, payload)
             setuserName('')
             setFirstName('')
             setLastName('')
@@ -49,6 +50,7 @@ function Registration() {
             return data
 
         } catch (err) {
+            console.log('error')
             console.log(err)
         }
     }

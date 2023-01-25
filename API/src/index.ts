@@ -26,6 +26,7 @@ app.get("/WORKING!!!", async (req, res) => {
 
 app.use('/login', loginRouter)  // midlewere
 app.use('/regester', registrationRouter)  // midlewere
+
 app.use(verifyToken);
 app.use('/vacations', router)
 app.use('/charts', charts)
