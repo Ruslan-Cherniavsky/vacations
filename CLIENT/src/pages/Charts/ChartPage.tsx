@@ -21,8 +21,7 @@ function Chart() {
             const { data } = await axiosInstance.get(`https://vacations-api.onrender.com/charts/`)
 
             setTopVcData(data)
-            // console.log(Number(data[0].user_likes))
-            // console.log(Number(topVcData[0].user_likes))
+
             return data
         } catch (err) {
             console.log(err)
@@ -38,65 +37,42 @@ function Chart() {
     ];
 
     return (
-        <>          <div className="container">
-            <div className="row ">
-                <h3 className="center-align ">Top 5 Vacations</h3>
-                <div className="chartMain">
-                    <VictoryChart
-                        // adding the material theme provided with Victory
-                        theme={VictoryTheme.material}
-                        domainPadding={10}
+        <>
+            <div className="container">
+                <div className="row ">
+                    <h3 className="center-align ">Top 5 Vacations</h3>
+                    <div className="chartMain">
+                        <VictoryChart
+                            theme={VictoryTheme.material}
+                            domainPadding={10}
 
-                    >
-                        <VictoryAxis
-                            tickValues={[1, 2, 3, 4, 5]}
-                            tickFormat={[`${topVcData[0]?.destination || ""}`,
-                            `${topVcData[1]?.destination || ""}`,
-                            `${topVcData[2]?.destination || ""}`,
-                            `${topVcData[3]?.destination || ""}`,
-                            `${topVcData[4]?.destination || ""}`]}
-                        />
-                        <VictoryAxis
-                            dependentAxis
-                            tickFormat={(x) => (`${x} Likes `)}
-                        />
-                        <VictoryBar
-                            style={{
-                                data: { width: 10 },
-                                labels: { padding: -50 }
-                            }}
-                            data={data}
-                            x="quarter"
-                            y="earnings"
-                        />
-                    </VictoryChart> </div>
+                        >
+                            <VictoryAxis
+                                tickValues={[1, 2, 3, 4, 5]}
+                                tickFormat={[`${topVcData[0]?.destination || ""}`,
+                                `${topVcData[1]?.destination || ""}`,
+                                `${topVcData[2]?.destination || ""}`,
+                                `${topVcData[3]?.destination || ""}`,
+                                `${topVcData[4]?.destination || ""}`]}
+                            />
+                            <VictoryAxis
+                                dependentAxis
+                                tickFormat={(x) => (`${x} Likes `)}
+                            />
+                            <VictoryBar
+                                style={{
+                                    data: { width: 10 },
+                                    labels: { padding: -50 }
+                                }}
+                                data={data}
+                                x="quarter"
+                                y="earnings"
+                            />
+                        </VictoryChart> </div>
+                </div>
             </div>
-        </div>
         </>
     );
 }
 
 export { Chart };
-
-
-
-
-
-
-
-
-
-
-
-// function Contact() {
-
-//     const { value, setValue } = useContext(UserContext)
-//     return (
-//         <>
-//             <h1> Hello, from Contact page!</h1>
-//             <h5>{value}</h5>
-//         </>
-//     );
-// }
-
-// export { Contact };
