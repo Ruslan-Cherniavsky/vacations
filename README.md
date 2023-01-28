@@ -1,8 +1,6 @@
-Vacation Project - Ruslan Cherniavsky Full Stack --Class 3
+vacation-backend Project - Ruslan Cherniavsky Full Stack --Class 3
 
 the project includes:
-
-* .env file with secret and database data
 
 * init.sql file with relevant mysql schema 
 
