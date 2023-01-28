@@ -1,7 +1,9 @@
 import { getConnection } from '../../data_base/data_base';
 import md5 from "md5";
+import { initDB } from '../../data_base/data_base';
 
 async function postRegistration(req, res, next) {
+    initDB()
     console.log(req.body)
     await addUser(req.body)
     return res.status(200).json({ message: "NEW USER REGISTERED!!!" });

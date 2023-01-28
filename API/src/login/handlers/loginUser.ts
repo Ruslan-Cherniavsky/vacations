@@ -1,10 +1,12 @@
 import { getConnection } from '../../data_base/data_base';
 import { signToken } from './signJwt'
 import md5 from "md5";
+import { initDB } from '../../data_base/data_base';
 
 //----------------------------------LOGIN POST + AUTORIZATION---------------------------------
 
 async function loginHandler(req, res, next) {
+  initDB()
   try {
     const result = await loginUser({ userName: req.body.userName, password: req.body.password, });
     if (!result) throw new Error("User is not authorized")
